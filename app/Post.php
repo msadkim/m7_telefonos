@@ -11,7 +11,7 @@ class Post extends Model
 		'titol', 'contingut', 'user_id',
 	];
 
-	public function use(){
+	public function user(){
 		return $this->belongsTo('App\User');
 	}
 
