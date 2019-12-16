@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreateTelefonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('telefons', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('contingut');
-            $table->String('escriptor');
-            
-            $table->unsignedBigInteger('telefon_id');
-            $table->foreign('telefon_id')->references('id')->on('telefons');
-            
+            $table->string('titol',100);
+            $table->text('contingut')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('telefons');
     }
 }

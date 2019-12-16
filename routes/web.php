@@ -15,6 +15,10 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
+Route::get('/telefon', function () {
+	return view('telefon.index');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -26,6 +30,8 @@ Route::get('/posts/{id}','PostController@show')->name('posts.show');
 Route::get('/posts/{id}/edit','PostController@edit')->name('posts.edit');
 Route::put('/posts/{id}','PostController@update')->name('posts.update');
 Route::delete('/posts/{id}','PostController@destroy')->name('posts.delete');
+
+Route::get('/telefon/search','TelefonController@search')->name('search');
 
 Route::post('/comments','CommentController@store')->name('comments.store');
 // Route::resource('posts','PostController');
